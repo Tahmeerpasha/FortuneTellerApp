@@ -16,7 +16,6 @@ public class FortuneUI implements ActionListener{
             "You will be pleasantly surprised tonight.",
             "You will be traveling and coming into a fortune.",
             "Your work interests can capture the highest status or prestige"};
-    public static String str, str2;
     public static int i1=0, i2=0;
     public static int sum;
     JLabel label = new JLabel("Name:     ");
@@ -27,8 +26,6 @@ public class FortuneUI implements ActionListener{
 //    JLabel label3 = new JLabel("Result");
     JTextArea t3 = new JTextArea(2,10);
     JButton button = new JButton("Click");
-    ImageIcon imageIcon = new ImageIcon("img.png");
-
     FortuneUI(){
         frame.setVisible(true);
         frame.setSize(300, 350);
