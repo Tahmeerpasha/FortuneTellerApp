@@ -16,7 +16,9 @@ public class FortuneUI implements ActionListener{
             "You will be pleasantly surprised tonight.",
             "You will be traveling and coming into a fortune.",
             "Your work interests can capture the highest status\nor prestige",
-            "A beautiful, smart, and loving person will be coming\n into your life."};
+            "A beautiful, smart, and loving person will be coming\n into your life.",
+            "A faithful friend is a strong defense.",
+            "All the effort you are making will ultimately pay off."};
     String[] zodiacSign = {"","Aries","Libra","Capricorn","Cancer","Taurus","Scorpio","Leo",
                             "Aquarius","Gemini","Sagittarius","Virgo","Pisces"};
     public int i1=0, i2=0;
@@ -53,7 +55,7 @@ public class FortuneUI implements ActionListener{
             if (i1 != 0 && i2 != 0) {
                 sum = (i1 + i2);
                 sum = sum % fortunes.length;
-                ResultTextArea.setText(nameTextField.getText() + " ur fortune according to your zodiac sign\n" + zodiacSign[comboBox.getSelectedIndex()] + " tells that->\n " + fortunes[sum]);
+                ResultTextArea.setText(nameTextField.getText() + "\nur fortune according to your zodiac sign " + zodiacSign[comboBox.getSelectedIndex()] + " is\n" + fortunes[sum]);
             } else {
                 ResultTextArea.setText("ERROR!!! No field inputs to calculate.\nEnter something to calculate your fortune");
             }
