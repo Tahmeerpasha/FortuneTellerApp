@@ -21,12 +21,11 @@ public class FortuneUI implements ActionListener{
                             "Aquarius","Gemini","Sagittarius","Virgo","Pisces"};
     public int i1=0, i2=0;
     public int sum;
-    JLabel label = new JLabel("Name:");
-    JTextField t1 = new JTextField(20);
-    JComboBox comboBox = new JComboBox(zodiacSign);
-    JLabel label1 = new JLabel("Zodiac Sign:");
-    JLabel label2 =  new JLabel();
-    JTextArea t3 = new JTextArea(2,10);
+    JLabel labelName = new JLabel("Name:");
+    JTextField nameTextField = new JTextField(20);
+    JComboBox<String> comboBox = new JComboBox<>(zodiacSign);
+    JLabel labelZodiacSign = new JLabel("Zodiac Sign:");
+    JTextArea ResultTextArea = new JTextArea(2,10);
     JButton button = new JButton("Proceed");
     FortuneUI(){
         frame.setVisible(true);
@@ -34,33 +33,35 @@ public class FortuneUI implements ActionListener{
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLayout(new FlowLayout());
-        frame.add(label);
-        frame.add(t1);
-        frame.add(label1);
+        frame.add(labelName);
+        frame.add(nameTextField);
+        frame.add(labelZodiacSign);
         frame.add(comboBox);
         frame.add(button);
-        frame.getContentPane().setBackground( new Color(128, 128, 128, 168));
-        t1.addActionListener(this);
+        nameTextField.addActionListener(this);
         button.addActionListener(this);
-        t3.setEditable(false);
+        ResultTextArea.setEditable(false);
+        frame.getContentPane().setBackground(Color.gray);
+
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        frame.add(ResultTextArea);
+        if(e.getSource() == button) {
+            i1 = nameTextField.getText().length();
+            i2 = zodiacSign[comboBox.getSelectedIndex()].length();
+            if (i1 != 0 && i2 != 0) {
+                sum = (i1 + i2);
+                sum = sum % fortunes.length;
+                ResultTextArea.setText(nameTextField.getText() + " ur fortune according to your zodiac sign\n" + zodiacSign[comboBox.getSelectedIndex()] + " tells that->\n " + fortunes[sum]);
+            } else {
+                ResultTextArea.setText("ERROR!!! No field inputs to calculate.\nEnter something to calculate your fortune");
+            }
+        }
+
     }
     public static void main(String[] args) {
         new FortuneUI();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        frame.add(label2);
-        frame.add(t3);
-        if (e.getSource() == button)
-            i1 = t1.getText().length();
-        i2 = zodiacSign[comboBox.getSelectedIndex()].length();
-        if (i1 != 0 && i2 != 0) {
-            sum = (i1 + i2);
-            sum = sum % fortunes.length;
-            t3.setText(t1.getText()+" ur fortune according to your zodiac sign\n"+zodiacSign[comboBox.getSelectedIndex()]+" tells that->\n "+fortunes[sum]);
-        } else {
-            t3.setText("ERROR!!! No field inputs to calculate. \nEnter something to calculate your fortune");
-        }
-    }
 }
