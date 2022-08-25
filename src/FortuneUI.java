@@ -7,15 +7,15 @@ public class FortuneUI implements ActionListener{
     public static String[] fortunes = {
             "A dubious friend may be an enemy in camouflage.",
             "Your success will astonish everyone.",
-            "You will soon be surrounded by good friends and laughter.",
+            "You will soon be surrounded by good friends and\nlaughter.",
             "Many will travel to hear you speak.",
             "Now is a good time to buy stock.",
-            "Physical activity will dramatically improve your outlook today.",
+            "Physical activity will dramatically improve your\noutlook today.",
             "Say hello to others. You will have a happier day.",
             "You should be able to undertake and complete anything.",
             "You will be pleasantly surprised tonight.",
             "You will be traveling and coming into a fortune.",
-            "Your work interests can capture the highest status or prestige"};
+            "Your work interests can capture the highest status\nor prestige"};
     public static int i1=0, i2=0;
     public static int sum;
     JLabel label = new JLabel("Name:     ");
@@ -55,7 +55,8 @@ public class FortuneUI implements ActionListener{
         if (i1 != 0 && i2 != 0) {
             sum = (i1 + i2);
             sum = sum % fortunes.length;
-            t3.setText(fortunes[sum]);
+            // t3.setText(t1.getText()+" ur fortune tells \n");
+            t3.setText(t1.getText()+" ur fortune according to your zodiac sign\n"+t2.getText()+" tells that->\n "+fortunes[sum]);
         } else {
             t3.setText("ERROR!!! No field inputs to calculate. \nEnter something to calculate your fortune");
         }
