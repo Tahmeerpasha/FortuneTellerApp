@@ -58,7 +58,6 @@ public class FortuneUI implements ActionListener{
         if (i1 != 0 && i2 != 0) {
             sum = (i1 + i2);
             sum = sum % fortunes.length;
-            // t3.setText(t1.getText()+" ur fortune tells \n");
             t3.setText(t1.getText()+" ur fortune according to your zodiac sign\n"+zodiacSign[comboBox.getSelectedIndex()]+" tells that->\n "+fortunes[sum]);
         } else {
             t3.setText("ERROR!!! No field inputs to calculate. \nEnter something to calculate your fortune");
