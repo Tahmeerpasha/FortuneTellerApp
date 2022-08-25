@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class FortuneUI implements ActionListener{
      JFrame frame = new JFrame("Fortune Teller");
-    public static String[] fortunes = {
+    public  String[] fortunes = {
             "A dubious friend may be an enemy in camouflage.",
             "Your success will astonish everyone.",
             "You will soon be surrounded by good friends and\nlaughter.",
@@ -43,6 +43,8 @@ public class FortuneUI implements ActionListener{
         nameTextField.addActionListener(this);
         button.addActionListener(this);
         ResultTextArea.setEditable(false);
+        ResultTextArea.setBackground(Color.gray);
+        ResultTextArea.setDisabledTextColor(Color.WHITE);
         frame.getContentPane().setBackground(Color.gray);
 
     }
